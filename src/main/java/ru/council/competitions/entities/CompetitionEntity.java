@@ -1,5 +1,9 @@
 package ru.council.competitions.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,17 +12,24 @@ import java.util.Date;
         name = "competitions",
         indexes = {
                 @Index(columnList = "competitionId", name = "competitionId"),
+                @Index(columnList = "competitionName", name = "competitionName"),
                 @Index(columnList = "dateOfCompetition", name = "dateOfCompetition")
+        },
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "competitionId")
         }
 )
+@Getter
+@Setter
+@ToString
 public class CompetitionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer competitionId;
-    @Column(nullable = false)
+    @Column(name = "competitionName", nullable = false)
     private String competitionName;
-    @Column(nullable = false)
+    @Column(name = "dateOfCompetition", nullable = false)
     private Date dateOfCompetition;
 
 }
