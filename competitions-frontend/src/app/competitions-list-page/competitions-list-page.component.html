@@ -1,1 +1,19 @@
-<p>competitions-list-page works!</p>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let row of rowData; trackBy: update">
+    <tr>
+      <th scope="row">{{rowData.indexOf(row) + 1}}</th>
+      <td>{{row.name}}</td>
+      <td>{{row.f1}}</td>
+      <td>{{row.f2}}</td>
+    </tbody>
+  </table>
+</div>
