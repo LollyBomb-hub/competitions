@@ -12,40 +12,52 @@
         {{row.name}}
       </td>
       <td>
-        <ng-template [ngIf]="row.f1"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f1 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
       <td>
-        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+        <div *ngIf="row.f2 === true; else notPresent"><i class="bi bi-check2"></i></div>
+        <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
       </td>
     </tbody>
   </table>
