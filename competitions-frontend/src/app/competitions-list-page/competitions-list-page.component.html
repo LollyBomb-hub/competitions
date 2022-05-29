@@ -1,19 +1,52 @@
 <div>
-  <table class="table">
+  <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Наименование</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col" *ngFor="let columnDef of columnDefs">{{columnDef}}</th>
     </tr>
     </thead>
-    <tbody *ngFor="let row of rowData; trackBy: update">
-    <tr>
+    <tbody>
+    <tr *ngFor="let row of rowData; trackBy: update">
       <th scope="row">{{rowData.indexOf(row) + 1}}</th>
-      <td>{{row.name}}</td>
-      <td>{{row.f1}}</td>
-      <td>{{row.f2}}</td>
+      <td>
+        {{row.name}}
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f1"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
+      <td>
+        <ng-template [ngIf]="row.f2"><i class="bi bi-check2"></i></ng-template>
+      </td>
     </tbody>
   </table>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ColDef, GridReadyEvent} from "ag-grid-community";
+import CompetitionModel from "../../models/CompetitionModel";
 
 @Component({
   selector: 'app-competitions-list-page',
@@ -7,13 +8,25 @@ import {ColDef, GridReadyEvent} from "ag-grid-community";
   styleUrls: ['./competitions-list-page.component.css']
 })
 export class CompetitionsListPageComponent implements OnInit {
-  public columnDefs: ColDef[] = [
-    { field: "name", headerName: "Наименование", sortable: false},
-    { field: "f1", headerName: "Field1" },
-    { field: "f2", headerName: "Field2" }
+  public columnDefs: string[] = [
+    "#",
+    "Наименование",
+    "53",
+    "58",
+    "64",
+    "71",
+    "79",
+    "88",
+    "98",
+    "98+",
+    "100",
+    '101',
+    "102",
+    "103"
   ];
-  public rowData: any[] = [
-    { "name": "gasg", "f1": "12", "f2": "22" }
+  public rowData: CompetitionModel[] = [
+    new CompetitionModel("Соревнование 1", true, true),
+    new CompetitionModel("Соревнование 2", true, false)
   ];
   public defaultColDef: ColDef = {
     width: 170,
@@ -27,11 +40,6 @@ export class CompetitionsListPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onGridReady(params: GridReadyEvent) {
-    params.api.setColumnDefs(this.columnDefs);
-    params.api.setRowData(this.rowData);
   }
 
 }
