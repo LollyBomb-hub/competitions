@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      username: postgres
+      password: password
+    url: jdbc:postgresql://localhost:25432/competitions
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    open-in-view: false
