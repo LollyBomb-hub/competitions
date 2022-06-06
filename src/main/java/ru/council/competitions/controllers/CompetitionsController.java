@@ -2,26 +2,33 @@ package ru.council.competitions.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import ru.council.competitions.repositories.CompetitionEntityRepository;
+import org.springframework.web.bind.annotation.*;
+import ru.council.competitions.entities.CompetitionEntity;
+import ru.council.competitions.models.CompetitionModel;
+import ru.council.competitions.services.CompetitionsService;
+
+import java.util.List;
 
 @Slf4j
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/competitions")
 public class CompetitionsController {
 
-    private final CompetitionEntityRepository competitionEntityRepository;
+    private final CompetitionsService competitionsService;
 
-    public CompetitionsController(CompetitionEntityRepository competitionEntityRepository) {
-        this.competitionEntityRepository = competitionEntityRepository;
+    public CompetitionsController(CompetitionsService competitionsService) {
+        this.competitionsService = competitionsService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<?> createCompetition(@RequestBody CompetitionEntity info) {
+        return ResponseEntity.ok(competitionsService.save(info));
     }
 
     @GetMapping("/list")
-    public ResponseEntity<?> getAllCompetitions() {
-        return ResponseEntity.ok(competitionEntityRepository.findAll());
+    public ResponseEntity<List<CompetitionModel>> getAllCompetitions() {
+        return ResponseEntity.ok(competitionsService.listAllCompetitions());
     }
 
 }

@@ -17,11 +17,4 @@ public class DocumentsController {
         this.competitionEntityRepository = competitionEntityRepository;
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String helloWorld() {
-        log.info("CALLED!");
-        competitionEntityRepository.findById(1);
-        return "";
-    }
-
 }

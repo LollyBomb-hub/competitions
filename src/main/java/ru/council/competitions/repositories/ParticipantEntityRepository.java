@@ -5,8 +5,8 @@ import ru.council.competitions.entities.ParticipantEntity;
 
 import java.util.Optional;
 
-public interface ParticipantEntityRepository extends JpaRepository<ParticipantEntity, Integer> {
+public interface ParticipantEntityRepository extends JpaRepository<ParticipantEntity, Long> {
 
-    Optional<ParticipantEntity> findById(Integer integer);
+    Optional<ParticipantEntity> findParticipantEntityByParticipantId(Long id);
 
 }
