@@ -59,11 +59,7 @@ export class CompetitionsListPageComponent implements OnInit {
     const dialogRef = this.dialog.open(
       CompetitionModalCreationComponent,
       {
-        hasBackdrop: true,
-        data: {
-          name: "t1",
-          animal: "animal"
-        },
+        hasBackdrop: true
       }
     );
     dialogRef.afterClosed().subscribe((result) => {

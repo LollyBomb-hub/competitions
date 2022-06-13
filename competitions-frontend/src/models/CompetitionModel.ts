@@ -1,5 +1,13 @@
 export default class CompetitionModel {
+  get id(): number {
+    return this._id;
+  }
 
+  set id(value: number) {
+    this._id = value;
+  }
+
+  private _id: number = -1;
   private _name: string;
   private _countFiftyThree: number = 0;
   private _countFiftyEight: number = 0;

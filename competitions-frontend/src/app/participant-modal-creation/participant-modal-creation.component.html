@@ -1,0 +1,43 @@
+<form style="width: 700px" class="was-validated">
+  <div style="margin-bottom: 20px">
+    <div class="mb-3">
+      <label for="naming" class="form-label">Имя участника</label>
+      <input type="text" class="form-control" id="naming" placeholder="Введите имя участника"
+             (change)="updateName()" required/>
+    </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Фамилия участника</label>
+      <input type="text" class="form-control" id="surname" placeholder="Введите фамилию участника"
+             (change)="updateSurname()" required/>
+    </div>
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Отчество(при наличии) участника</label>
+      <input type="text" class="form-control" id="lastname" placeholder="Введите отчество участника"
+             (change)="updateLastname()"/>
+    </div>
+    <div class="mb-3">
+      <label for="weight" class="form-label">Вес участника</label>
+      <input type="number" step="0.01" class="form-control" id="weight" placeholder="Введите вес участника"
+             (change)="updateWeight()" required/>
+    </div>
+    <div class="mb-3">
+      <label id="instituteLabel" for="institute" class="form-label">Институт</label>
+      <input type="text" class="form-control" id="institute" placeholder="Введите институт участника" aria-describedby="instituteLabel"
+             (change)="updateInstitute()"/>
+    </div>
+    <div class="input-group">
+      <label id="courseLabel" for="course" class="input-group-text">Курс</label>
+      <select id="course" class="form-select" aria-describedby="courseLabel" (change)="courseSelected()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label id="groupLabel" for="group" class="input-group-text">Группа</label>
+      <input type="number" step="1" class="form-control" id="group" placeholder="Введите группу участника" aria-describedby="groupLabel"
+             (change)="updateGroup()"/>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="createParticipant()">Создать</button>
+</form>
+

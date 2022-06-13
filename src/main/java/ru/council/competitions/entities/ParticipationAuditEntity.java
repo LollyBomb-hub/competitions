@@ -18,11 +18,11 @@ public class ParticipationAuditEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long auditId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "competition", referencedColumnName = "competitionId", nullable = false)
     private CompetitionEntity competition;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "participant", referencedColumnName = "participantId", nullable = false)
     private ParticipantEntity participant;
 

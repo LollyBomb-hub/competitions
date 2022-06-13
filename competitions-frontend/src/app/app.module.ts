@@ -19,7 +19,7 @@ import { CompetitionModalUpdateComponent } from './competition-modal-update/comp
 import { ParticipantsListPageComponent } from './participants-list-page/participants-list-page.component';
 import { ParticipantModalCreationComponent } from './participant-modal-creation/participant-modal-creation.component';
 import { ParticipantInfoComponentComponent } from './participant-info-component/participant-info-component.component';
-import { ParticipantRegistrationComponentComponent } from './participant-registration-component/participant-registration-component.component';
+import { ParticipantRegistrationComponent } from './participant-registration-component/participant-registration.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { ParticipantRegistrationComponentComponent } from './participant-registr
     ParticipantsListPageComponent,
     ParticipantModalCreationComponent,
     ParticipantInfoComponentComponent,
-    ParticipantRegistrationComponentComponent
+    ParticipantRegistrationComponent
   ],
   imports: [
     BrowserAnimationsModule,

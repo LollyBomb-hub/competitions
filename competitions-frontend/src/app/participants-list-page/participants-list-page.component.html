@@ -1,0 +1,26 @@
+<div>
+  <button mat-raised-button (click)="addButtonClicked()">
+    <label>Создать</label>
+    <mat-icon>add</mat-icon>
+  </button>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col" *ngFor="let columnDef of columnDefs">{{columnDef}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of rowData; trackBy: update" (click)="openInfo(row)">
+      <th scope="row">{{rowData.indexOf(row) + 1}}</th>
+      <td>
+        {{row.fio}}
+      </td>
+      <td>
+        <div>{{row.weight}}</div>
+      </td>
+      <td>
+        <div>{{row.instituteCourseGroup}}</div>
+      </td>
+    </tbody>
+  </table>
+</div>

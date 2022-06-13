@@ -1,0 +1,78 @@
+<div *ngIf="model != null">
+  <div class="mb-3">
+    <h1>{{model.fio}}</h1>
+    <h6>
+      Институт, курс, группа: {{model.instituteCourseGroup}} / Вес: {{model.weight}}
+    </h6>
+  </div>
+  <button type="button" class="btn btn-success" (click)="register()">Зарегистрировать</button>
+  <div *ngIf="model.participation.length != 0; else notPresent">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col" *ngFor="let columnDef of columnDefs">{{columnDef}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of model.participation; trackBy: update">
+        <th scope="row">{{model.participation.indexOf(row) + 1}}</th>
+        <td>
+          {{row.name}}
+        </td>
+        <td>
+          <div *ngIf="row.countFiftyThree != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countFiftyEight != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countSixtyFour != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countSeventyOne != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countSeventyNine != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countEightyEight != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countNinetyEight != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countNinetyEightPlus != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countHundred != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countHundredAndOne != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countHundredAndTwo != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+        <td>
+          <div *ngIf="row.countHundredAndThree != 0; else notPresent"><i class="bi bi-check-lg"></i></div>
+          <ng-template #notPresent><i class="bi bi-x-lg"></i></ng-template>
+        </td>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #notPresent>
+    <div class="mb-3">
+      <label>Ещё нигде не участвовал</label>
+    </div>
+  </ng-template>
+</div>

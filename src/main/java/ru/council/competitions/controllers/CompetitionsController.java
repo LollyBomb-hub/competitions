@@ -27,8 +27,9 @@ public class CompetitionsController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<CompetitionModel>> getAllCompetitions() {
-        return ResponseEntity.ok(competitionsService.listAllCompetitions());
+    public ResponseEntity<List<CompetitionModel>> getAllCompetitions(@RequestParam(required = false) Long filtered) {
+        log.info("Listing competitions!");
+        return ResponseEntity.ok(competitionsService.listAllCompetitions(filtered));
     }
 
 }

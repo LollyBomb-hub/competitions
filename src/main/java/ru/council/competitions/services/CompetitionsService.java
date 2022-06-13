@@ -1,6 +1,6 @@
 package ru.council.competitions.services;
 
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ru.council.competitions.entities.CompetitionEntity;
 import ru.council.competitions.entities.ParticipantEntity;
@@ -15,6 +15,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
+@Slf4j
 public class CompetitionsService {
 
     private final ParticipationAuditRepository participationAuditRepository;
@@ -30,16 +31,17 @@ public class CompetitionsService {
         return entity;
     }
 
-    public List<CompetitionModel> listAllCompetitions() {
-        List<CompetitionEntity> all = competitionEntityRepository.findAll();
+    public List<CompetitionModel> listAllCompetitions(Long filtered) {
+        log.info("Listing all competitions!");
+        List<CompetitionEntity> allCompetitions = competitionEntityRepository.findAll();
 
-        List<Long> ids = all.stream().map(CompetitionEntity::getCompetitionId).collect(Collectors.toList());
+        List<Long> competitionIds = allCompetitions.stream().map(CompetitionEntity::getCompetitionId).collect(Collectors.toList());
 
         Map<Long, List<ParticipationAuditEntity>> competitionToAudit = new HashMap<>();
 
-        List<ParticipationAuditEntity> audit = participationAuditRepository.findAllByCompetitionIn(all);
+        List<ParticipationAuditEntity> audit = participationAuditRepository.findAllByCompetitionIn(allCompetitions);
 
-        ids.forEach(
+        competitionIds.forEach(
                 id -> competitionToAudit.put(
                         id,
                         audit.stream().filter(
@@ -50,8 +52,12 @@ public class CompetitionsService {
 
         List<CompetitionModel> result = new ArrayList<>();
 
-        for (CompetitionEntity entity : all) {
-            result.add(convertEntityToModel(entity, competitionToAudit.get(entity.getCompetitionId())));
+        for (CompetitionEntity entity : allCompetitions) {
+            List<ParticipationAuditEntity> participationAuditEntities = competitionToAudit.get(entity.getCompetitionId());
+            List<ParticipantEntity> participants = participationAuditEntities.stream().map(ParticipationAuditEntity::getParticipant).collect(Collectors.toList()).stream().filter(Objects::nonNull).collect(Collectors.toList());
+            List<Long> participantIds = participants.stream().map(ParticipantEntity::getParticipantId).collect(Collectors.toList());
+            if (!(participantIds.contains(filtered) && filtered != null))
+                result.add(convertEntityToModel(entity, participationAuditEntities));
         }
 
         return result;
